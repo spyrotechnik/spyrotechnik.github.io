@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/logo.ico">
+
+    <title>Brewery Master</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- Main js file -->
+    <script src="js/main.js" charset="utf-8" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">Brewery Master</div>
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action bg-light" onclick="load_brewery()">Brewery</a>
+                <a class="list-group-item list-group-item-action bg-light" onclick="load_wholesale()">Wholesale</a>
+                <a class="list-group-item list-group-item-action bg-light" onclick="load_research()">Research</a>
+                <a class="list-group-item list-group-item-action bg-light" onclick="load_events()">Events</a>
+                <a class="list-group-item list-group-item-action bg-light" onclick="load_statistics()">Statistics</a>
+            </div>
+            <div class="sidebar-footer">
+                <p>Created by: <a href=https://github.com/spyrotechnik/brewery_master>SpyroTechnik</a> - 2019</p>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <div id="page-content-wrapper">
+            <!-- Top bar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options</a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="wrapper">
+                                <button type="button" class="btn btn-success" onclick="saveGame()">Save Game</button>
+                                <div class="dropdown-divider"></div>
+                                <button type="button" class="btn btn-info" onclick="loadGame()">Load Game</button>
+                                <div class="dropdown-divider"></div>
+                                <button type="button" class="btn btn-danger" onclick="restartGame()">Restart Game</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- /#Top bar -->
+
+            <!-- Main container -->
+            <div class="container" id="main">
+                <div class="container-fluid" id="brewery">
+                    <h1>Brewery</h1>
+                    <hr>
+                    <div class="beerBrewed"></div>
+                    <div class="money"></div>
+                    <div class="grainStock"></div>
+                    <button id="brew-btn" type="button" class="btn btn-warning" onclick="brewBeer()">Brew beer</button>
+                    <button id="sell-btn" type="button" class="btn btn-success" onclick="sellBeer()">Sell beer</button>
+                    <button id="sell-all-btn" type="button" class="btn btn-success" onclick="sellAllBeer()">Sell all beer</button>
+                    <hr>
+                    <h3>Grain Capacity</h3>
+                    <div class="progress">
+                        <div id="grainCapacity" class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar"></div>
+                    </div>
+                </div>
+
+                <div class="container-fluid" id="wholesale" style="display:none">
+                    <h1>Wholesale</h1>
+                    <hr>
+                    <div class="grainStock"></div>
+                    <button id="buy-grain-btn" type="button" class="btn btn-primary" onclick="buyGrain()">Buy grain</button>
+                    <div class="grainPrice"></div>
+                </div>
+
+                <div class="container-fluid" id="research" style="display:none">
+                    <h1>Research</h1>
+                    <hr>
+                    <button id="upgrade-btn" type="button" class="btn btn-dark" onclick="buyBeerPerClick()">Upgrade beer brewing</button>
+                    <div class="perClickUpgrade"></div>
+                </div>
+
+                <div class="container-fluid" id="events" style="display:none">
+                    <h1>Events</h1>
+                    <hr>
+                    <p>Not implemented yet...</p>
+                </div>
+
+                <div class="container-fluid" id="statistics" style="display:none">
+                    <h1>Statistics</h1>
+                    <hr>
+                    <p>Not implemented yet...</p>
+                </div>
+
+                <div>
+                    <div class="game_saved"></div>
+                </div>
+            </div>
+            <!-- /#Main container -->
+
+        </div>
+        <!-- /#wrapper -->
+
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="vendor/mdb/mdb.js"></script>
+
+        <!-- Menu Toggle Script -->
+        <script>
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+        </script>
+
+</body>
+
+</html>
